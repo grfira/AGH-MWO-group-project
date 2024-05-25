@@ -8,6 +8,10 @@ public class PitStop {
     private int spit_duration;
     private int slap_number;
 
+    public PitStop() {
+
+    }
+
     public int getSession_key() {
         return session_key;
     }
