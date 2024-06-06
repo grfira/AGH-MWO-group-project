@@ -1,11 +1,13 @@
 package pl.edu.agh.mwo;
 
+import java.time.LocalDateTime;
+
 public class PitStop {
     private int session_key;
     private int smeeting_key;
-    private String sdate;
+    private LocalDateTime sdate;
     private int sdriver_number;
-    private int spit_duration;
+    private double spit_duration;
     private int slap_number;
 
     public PitStop() {
@@ -16,7 +18,7 @@ public class PitStop {
         return session_key;
     }
 
-    public PitStop(int session_key, int smeeting_key, String sdate, int sdriver_number, int spit_duration, int slap_number) {
+    public PitStop(int session_key, int smeeting_key, LocalDateTime  sdate, int sdriver_number, double spit_duration, int slap_number) {
         this.session_key = session_key;
         this.smeeting_key = smeeting_key;
         this.sdate = sdate;
@@ -37,11 +39,11 @@ public class PitStop {
         this.smeeting_key = smeeting_key;
     }
 
-    public String getSdate() {
+    public LocalDateTime  getSdate() {
         return sdate;
     }
 
-    public void setSdate(String sdate) {
+    public void setSdate(LocalDateTime sdate) {
         this.sdate = sdate;
     }
 
@@ -53,7 +55,7 @@ public class PitStop {
         this.sdriver_number = sdriver_number;
     }
 
-    public int getSpit_duration() {
+    public double getSpit_duration() {
         return spit_duration;
     }
 
