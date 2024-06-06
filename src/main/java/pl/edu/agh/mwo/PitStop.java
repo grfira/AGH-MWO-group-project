@@ -1,24 +1,46 @@
 package pl.edu.agh.mwo;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
+import java.time.LocalDateTime;
+
 public class PitStop {
     private int session_key;
     private int smeeting_key;
-    private String sdate;
+    private LocalDateTime sdate;
     private int sdriver_number;
-    private int spit_duration;
+    private double spit_duration;
     private int slap_number;
+
+    public PitStop() {
+
+    }
 
     public int getSession_key() {
         return session_key;
     }
 
-    public PitStop(int session_key, int smeeting_key, String sdate, int sdriver_number, int spit_duration, int slap_number) {
+    public PitStop(int session_key, int smeeting_key, LocalDateTime  sdate, int sdriver_number, double spit_duration, int slap_number) {
         this.session_key = session_key;
         this.smeeting_key = smeeting_key;
         this.sdate = sdate;
         this.sdriver_number = sdriver_number;
         this.spit_duration = spit_duration;
         this.slap_number = slap_number;
+    }
+
+    public PitStop(JSONObject jsonObject) throws IOException, ParseException {
+
+
+        this.session_key = (int) jsonObject.get("session_key");
+        this.smeeting_key = (int) jsonObject.get("meeting_key");
+        this.sdate = (LocalDateTime) jsonObject.get("date");
+        this.sdriver_number = (int) jsonObject.get("driver_number");
+        this.spit_duration = (double) jsonObject.get("pit_duration");
+        this.slap_number = (int) jsonObject.get("lap_number");
+
     }
 
     public void setSession_key(int session_key) {
@@ -33,11 +55,11 @@ public class PitStop {
         this.smeeting_key = smeeting_key;
     }
 
-    public String getSdate() {
+    public LocalDateTime  getSdate() {
         return sdate;
     }
 
-    public void setSdate(String sdate) {
+    public void setSdate(LocalDateTime sdate) {
         this.sdate = sdate;
     }
 
@@ -49,7 +71,7 @@ public class PitStop {
         this.sdriver_number = sdriver_number;
     }
 
-    public int getSpit_duration() {
+    public double getSpit_duration() {
         return spit_duration;
     }
 
