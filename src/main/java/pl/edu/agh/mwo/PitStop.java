@@ -1,5 +1,9 @@
 package pl.edu.agh.mwo;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 public class PitStop {
@@ -25,6 +29,18 @@ public class PitStop {
         this.sdriver_number = sdriver_number;
         this.spit_duration = spit_duration;
         this.slap_number = slap_number;
+    }
+
+    public PitStop(JSONObject jsonObject) throws IOException, ParseException {
+
+
+        this.session_key = (int) jsonObject.get("session_key");
+        this.smeeting_key = (int) jsonObject.get("meeting_key");
+        this.sdate = (LocalDateTime) jsonObject.get("date");
+        this.sdriver_number = (int) jsonObject.get("driver_number");
+        this.spit_duration = (double) jsonObject.get("pit_duration");
+        this.slap_number = (int) jsonObject.get("lap_number");
+
     }
 
     public void setSession_key(int session_key) {
